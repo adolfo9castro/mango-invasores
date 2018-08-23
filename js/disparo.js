@@ -1,15 +1,81 @@
-function disparo(tablero){   
-    this.tablero = tablero;
-    this.ancho = 5;
-    this.alto = 15;
-    this.velocidad = -10;
-    this.dibujarDisparo = (xDeNave, y) => {
-        this.x = xDeNave;
-        this.y = y;
+function disparo(tablero, xDeNave, y){
+    this.y = y
+    this.tablero = tablero
+    this.intervals = setInterval(moverDisparo(this.tablero, xDeNave, y), 100);
+
+    function moverDisparo(t, x, y){
+        console.log(12312)
+        this.x = x;
+        this.y = y
+        this.tablero = t;  
         this.tablero.fillStyle = "#F00";
-        while(this.y > 0){
-            this.y += this.velocidad
-            this.tablero.fillRect(this.x , this.y - 35, this.ancho, this.alto);
-        }
+        this.ancho = 5;
+        this.alto = 15;
+        this.velocidad = -10;
+        this.y += this.velocidad
+        this.tablero.fillRect(this.x , this.y - 35, this.ancho, this.alto);
     }
 }
+
+
+
+
+/*
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
+</head>
+<body onload="startGame()">
+<script>
+
+var myGamePiece;
+
+function startGame() {
+    myGamePiece = new component(30, 30, "red", 10, 120);
+    myGameArea.start();
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 480;
+        this.canvas.height = 270;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.interval = setInterval(updateGameArea, 20);
+    },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+}
+
+function component(width, height, color, x, y) {
+    this.width = width;
+    this.height = height;
+    this.x = x;
+    this.y = y;    
+    this.update = function(){
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+}
+
+function updateGameArea() {
+    myGameArea.clear();
+    myGamePiece.x += 1;
+    myGamePiece.update();
+}
+</script>
+<p>The red square moves one pixel to the right, 50 times per second.</p>
+</body>
+</html>
+
+*/

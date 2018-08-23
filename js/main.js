@@ -12,7 +12,7 @@
     tablero.style.backgroundColor="#123";
     let ubicarNave = (ejeX - ancho) / 2;
     nave = new nave(graficos, ubicarNave, ejeX, ejeY, ancho, alto);
-    disparo = new disparo(graficos)
+    //disparo = new disparo(graficos)
     document.onkeydown=function(e){       
         switch(e.keyCode){
             case 39:
@@ -23,7 +23,8 @@
             break;  
             case 32:
                 let acaEstaLaNave = nave.dondeEstaLaNave()-1 + (ancho/2)
-                disparo.dibujarDisparo(acaEstaLaNave, ejeY)
+                new disparo(graficos, acaEstaLaNave, ejeY)
+                //disparo.dibujarDisparo(acaEstaLaNave, ejeY)
             break;              
         }
     };
