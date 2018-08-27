@@ -1,5 +1,30 @@
-function disparo(tablero, xDeNave, y){
-    this.y = y
+function initDisparo(tablero, xDeNave, y){    
+    let pedazoDisparo = new disparo(tablero, xDeNave, y);
+    moverDisparo.iniciar();
+}
+
+moverDisparo = {
+    iniciar: () => { 
+        this.interval = setInterval(updateGameArea, 20);
+    },
+    clear : () => {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+}
+
+function disparo(tablero, xDeNave, y) {
+    this.width = width;
+    this.height = height;
+    this.x = x;
+    this.y = y;    
+    this.update = function(){
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+}
+    
+   /*  this.y = y
     this.tablero = tablero
     this.intervals = setInterval(moverDisparo(this.tablero, xDeNave, y), 100);
 
@@ -14,8 +39,8 @@ function disparo(tablero, xDeNave, y){
         this.velocidad = -10;
         this.y += this.velocidad
         this.tablero.fillRect(this.x , this.y - 35, this.ancho, this.alto);
-    }
-}
+    } */
+
 
 
 
