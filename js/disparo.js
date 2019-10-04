@@ -31,21 +31,3 @@ class Disparo {
 
 
 }
-
-
-    /*   this.moverDisparoDerecha = function(){
-          this.tablero.clearRect(0, y-30, ubicacionDisparo*2, this.alto)
-          this.tablero.fillStyle = "#0F0";
-          this.ubicacionDisparo += this.ubicacionDisparo < this.x-this.ancho ? this.velocidad : 0;
-          this.tablero.fillRect(this.ubicacionDisparo, y-30, this.ancho, this.alto); 
-      }
-      this.moverDisparoIzquierda = function(){
-          this.tablero.clearRect(0, y-30, ubicacionDisparo*4, this.alto)
-          this.tablero.fillStyle = "#0F0";
-          this.ubicacionDisparo -= this.ubicacionDisparo >= 10 ? this.velocidad : 0;
-          this.tablero.fillRect(this.ubicacionDisparo, y-30, this.ancho, this.alto);        
-      }
-  
-      this.dondeEstaLaDisparo = function(){
-          return this.ubicacionDisparo
-      } */
